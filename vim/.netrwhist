@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/martin/Cours/Tal'
+let g:netrw_dirhist_2='/home/martin/Cours/Tal/tal'
+let g:netrw_dirhist_3='/home/martin/.wine/drive_c/Program Files (x86)/GOG.com/Baldurs Gate II/generalized_biffing/tra'
+let g:netrw_dirhist_4='/home/martin/.wine/drive_c/Program Files (x86)/GOG.com/Baldurs Gate II/generalized_biffing/tra/english'
+let g:netrw_dirhist_5='/etc/kde4'
+let g:netrw_dirhist_6='/etc/kde4/kdm'
+let g:netrw_dirhist_7='/home/martin/dotfiles'
+let g:netrw_dirhist_8='/home/martin/dotfiles/resources'
