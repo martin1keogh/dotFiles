@@ -154,7 +154,14 @@ map! [5~ <Home>
 map [6~ <End>
 map! [6~ <End>
 
-"colorscheme molokai
-
 map ,F :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Map Control-direction to window-movement
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <C-Up> <C-W>k
+map <C-Down> <C-W>j
+map <C-Left> <C-W>h
+map <C-Right> <C-W>l
