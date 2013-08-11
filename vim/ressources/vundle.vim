@@ -55,7 +55,6 @@ Bundle 'tpope/vim-endwise'
 Bundle 'sjl/vitality.vim'
 
 " Colorschemes
-Bundle 'w0ng/vim-hybrid'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'summerfruit256.vim'
 

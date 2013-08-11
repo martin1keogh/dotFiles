@@ -160,3 +160,5 @@ let g:tagbar_type_omlet = {
 		\ 'e:Exception'
 		\]
 \}
+
+colorscheme hybrid
