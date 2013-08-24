@@ -78,7 +78,11 @@ Bundle 'spiroid/vim-ultisnip-scala'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/unite.vim'
 
+Bundle 'aaronbieber/quicktask'
 
+Bundle 'gerw/vim-latex-suite'
+
+Bundle 'mdreves/vim-scaladoc'
 " Finish up Vundle
 filetype plugin indent on
 syntax on
