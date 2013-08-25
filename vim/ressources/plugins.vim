@@ -42,7 +42,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <C-p> :Unite -start-insert file_rec/async:!<cr>
 nnoremap <space>/ :Unite grep:.<cr>
+" use ag if available
+if executable('ag')
+	let g:unite_source_grep_command = 'ag'
+	let g:unite_source_grep_default_opts = '--nogroup --column --nocolor'
+	let g:unite_source_grep_recursive_opt = ''
 " Use ack in unite grep source.
-let g:unite_source_grep_command = 'ack-grep'
-let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-let g:unite_source_grep_recursive_opt = ''
+else 
+	let g:unite_source_grep_command = 'ack-grep'
+	let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
+	let g:unite_source_grep_recursive_opt = ''
+endif
