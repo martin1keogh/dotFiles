@@ -165,3 +165,7 @@ map <C-Up> <C-W>k
 map <C-Down> <C-W>j
 map <C-Left> <C-W>h
 map <C-Right> <C-W>l
+
+
+"colorscheme ir_black
+colorscheme hybrid

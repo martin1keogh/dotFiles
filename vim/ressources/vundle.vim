@@ -81,6 +81,7 @@ Bundle 'Shougo/unite.vim'
 Bundle 'aaronbieber/quicktask'
 
 Bundle 'gerw/vim-latex-suite'
+Bundle 'christoomey/vim-tmux-navigator'
 
 Bundle 'mdreves/vim-scaladoc'
 " Finish up Vundle
