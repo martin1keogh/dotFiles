@@ -1,6 +1,4 @@
-# List direcory contents
-alias lsa='ls -lah'
-alias l='ls -la'
+#alias l='ls -la'
 alias ll='ls -l'
 alias la='ls -lA'
 alias sl=ls # often screw this up
@@ -37,4 +35,5 @@ alias arise='export http_proxy=http://http-proxy.iiens.net:3128;export ftp_proxy
 alias google-chrome-arise='google-chrome --proxy-server=http-proxy.iiens.net:3128'
 alias google-chrome-user-agent="google-chrome --user-agent HTC-T8282"
 alias eclipse="(eclipse -clean &) &> /dev/null "
-
+alias tmux="tmux -2"
+alias git-root='cd $(git rev-parse --show-toplevel)'
