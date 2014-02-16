@@ -108,6 +108,8 @@ set nu
 
 source ~/.vim/ressources/vundle.vim
 
+let g:neocomplete#enable_at_startup = 1
+
 source ~/.vim/ressources/functional.vim
 source ~/.vim/ressources/languages.vim
 
@@ -160,5 +162,3 @@ let g:tagbar_type_omlet = {
 		\ 'e:Exception'
 		\]
 \}
-
-colorscheme hybrid

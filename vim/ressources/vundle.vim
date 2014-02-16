@@ -1,89 +1,106 @@
 " Set up Vundle
+if has('vim_starting')
+ 	set nocompatible               " Be iMproved
+ 	set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Allow plugins to eat `.`
-Bundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-repeat'
 
 " Delimiters
-Bundle 'Raimondi/delimitMate'
+NeoBundle 'Raimondi/delimitMate'
 
 " Fuzzy finder
-"Bundle 'kien/ctrlp.vim'
+"NeoBundle 'kien/ctrlp.vim'
 
 " NERDTred
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jistr/vim-nerdtree-tabs'
 
-Bundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdcommenter'
 
 " Git
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 
 " Syntax checking
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 
 " Tab completion
-Bundle 'Valloric/YouCompleteMe'
-
-" Indent guides, a la Sublime
-"Bundle 'nathanaelkane/vim-indent-guides'
-
+NeoBundle 'Valloric/YouCompleteMe'
 
 " Fix misspellings
-Bundle 'chip/vim-fat-finger'
+NeoBundle 'chip/vim-fat-finger'
 
 " Syntax highlightings
-Bundle 'Markdown'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'jQuery'
-Bundle 'rails.vim'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'lunaru/vim-less'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'wavded/vim-stylus'
-Bundle 'digitaltoad/vim-jade'
+NeoBundle 'Markdown'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'jQuery'
+NeoBundle 'rails.vim'
+NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+NeoBundle 'lunaru/vim-less'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'wavded/vim-stylus'
+NeoBundle 'digitaltoad/vim-jade'
 
 " Auto-add "end" in Ruby
-Bundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-endwise'
 
 " Vim + iTerm2 + tmux
-Bundle 'sjl/vitality.vim'
+"NeoBundle 'sjl/vitality.vim'
+NeoBundle 'vimoutliner/vimoutliner'
 
 " Colorschemes
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'summerfruit256.vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'summerfruit256.vim'
 
-Bundle 'Lokaltog/powerline'
-Bundle 'majutsushi/tagbar'
+NeoBundle 'Lokaltog/powerline'
+NeoBundle 'majutsushi/tagbar'
 
-Bundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-unimpaired'
 
-Bundle 'myusuf3/numbers.vim'
+NeoBundle 'myusuf3/numbers.vim'
 
-Bundle 'godlygeek/tabular'
-" Bundle 'tomasr/molokai'
+NeoBundle 'godlygeek/tabular'
+" NeoBundle 'tomasr/molokai'
 
-Bundle 'mileszs/ack.vim'
+NeoBundle 'mileszs/ack.vim'
 
-Bundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 
-Bundle 'SirVer/ultisnips'
-Bundle 'spiroid/vim-ultisnip-scala'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'spiroid/vim-ultisnip-scala'
 
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+NeoBundle 'Shougo/unite.vim'
 
-Bundle 'aaronbieber/quicktask'
+NeoBundle 'aaronbieber/quicktask'
 
-Bundle 'gerw/vim-latex-suite'
-Bundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'gerw/vim-latex-suite'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
-Bundle 'mdreves/vim-scaladoc'
+NeoBundle 'elzr/vim-json'
+
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
+NeoBundle 'mdreves/vim-scaladoc'
 " Finish up Vundle
 filetype plugin indent on
 syntax on
+
+NeoBundleCheck

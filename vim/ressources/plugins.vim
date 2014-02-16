@@ -1,6 +1,6 @@
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1    " Put errors on left side
-let g:syntastic_quiet_warnings=1  " Only errors, not warnings please
+let g:syntactic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_auto_loc_list=2   " Only show errors when I ask
 let g:syntastic_disabled_filetypes = ['html', 'js']
 if has('unix')
@@ -41,7 +41,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <C-p> :Unite -start-insert file_rec/async:!<cr>
-nnoremap <space>/ :Unite grep:.<cr>
+nnoremap <space>/ :Unite -start-insert grep:.<cr>
 " use ag if available
 if executable('ag')
 	let g:unite_source_grep_command = 'ag'
@@ -53,3 +53,4 @@ else
 	let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
 	let g:unite_source_grep_recursive_opt = ''
 endif
+
