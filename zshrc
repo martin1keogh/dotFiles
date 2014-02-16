@@ -1,4 +1,4 @@
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/scala/bin:$HOME/.rvm/bin
+export PATH=$HOME/.rvm/bin:$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/scala/bin
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 
 # Path to your oh-my-zsh configuration.
@@ -25,7 +25,7 @@ ZSH_THEME="my"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -45,7 +45,6 @@ ZSH_THEME="my"
 plugins=(git colored-man command-not-found sbt scala)
 
 source $ZSH/oh-my-zsh.sh
-
 
 setopt correctall
 setopt autocd
@@ -75,17 +74,29 @@ if [[ $SHLVL -le 3 ]] ; then
 fi
 
 play () {
-	if [[ -e $1 ]];then
-		touch $1;
-		(smplayer -add-to-playlist $1) &
-      else
-              echo -n $1
-              echo " n'existe pas"
-      	fi
+	for file in "$@";do
+		if [[ -e $file ]];then
+			touch $file;
+			(smplayer -close-at-end -add-to-playlist $file) &!
+			echo "Added "$file
+			sleep 1
+    else
+      echo -n $file
+      echo " n'existe pas"
+    fi
+  done
 }
 
 function chpwd() {
-    emulate -L zsh
-    ls
+	emulate -L zsh
+	ls
 }
 
+# Ubuntu doesn't seem to like #define in .Xressources, let's force his hand
+if [[ x$WINDOW != x ]]
+then 
+	xrdb -merge ~/.Xresources
+fi
+
+# OPAM configuration
+. /home/martin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
