@@ -4,11 +4,16 @@ if has('vim_starting')
  	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-set nocompatible
 filetype off
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'bling/vim-airline'
+
+NeoBundle 'justinmk/vim-sneak'
+
+NeoBundle 'bling/vim-bufferline'
 
 " Allow plugins to eat `.`
 NeoBundle 'tpope/vim-repeat'
@@ -32,7 +37,11 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
 
 " Tab completion
-NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe', {
+	\ 'build' : {
+		\ 'unix' : 'sh install.sh'
+	\}
+\}
 
 " Fix misspellings
 NeoBundle 'chip/vim-fat-finger'
@@ -43,32 +52,13 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jQuery'
 NeoBundle 'rails.vim'
 NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-NeoBundle 'lunaru/vim-less'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'leafgarland/typescript-vim'
-NeoBundle 'wavded/vim-stylus'
-NeoBundle 'digitaltoad/vim-jade'
 
-" Auto-add "end" in Ruby
-NeoBundle 'tpope/vim-endwise'
 
-" Vim + iTerm2 + tmux
-"NeoBundle 'sjl/vitality.vim'
-NeoBundle 'vimoutliner/vimoutliner'
-
-" Colorschemes
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'summerfruit256.vim'
-
-NeoBundle 'Lokaltog/powerline'
 NeoBundle 'majutsushi/tagbar'
 
 NeoBundle 'tpope/vim-unimpaired'
 
 NeoBundle 'myusuf3/numbers.vim'
-
-NeoBundle 'godlygeek/tabular'
-" NeoBundle 'tomasr/molokai'
 
 NeoBundle 'mileszs/ack.vim'
 
@@ -94,9 +84,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 
 NeoBundle 'elzr/vim-json'
 
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'airblade/vim-gitgutter'
 
 NeoBundle 'mdreves/vim-scaladoc'
 " Finish up Vundle

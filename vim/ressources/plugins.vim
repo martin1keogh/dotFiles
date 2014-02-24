@@ -24,10 +24,6 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_max_list = 12
-let g:neocomplcache_enable_auto_select = 1
 
 if version >= 702
 	let g:indent_guides_enable_on_vim_startup = 1
@@ -35,9 +31,8 @@ if version >= 702
 	let g:indent_guides_guide_size = 1
 endif
 
-
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 nnoremap <C-p> :Unite -start-insert file_rec/async:!<cr>
@@ -48,9 +43,11 @@ if executable('ag')
 	let g:unite_source_grep_default_opts = '--nogroup --column --nocolor'
 	let g:unite_source_grep_recursive_opt = ''
 " Use ack in unite grep source.
-else 
+else
 	let g:unite_source_grep_command = 'ack-grep'
 	let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
 	let g:unite_source_grep_recursive_opt = ''
 endif
 
+let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
