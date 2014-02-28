@@ -13,8 +13,6 @@ NeoBundle 'bling/vim-airline'
 
 NeoBundle 'justinmk/vim-sneak'
 
-NeoBundle 'bling/vim-bufferline'
-
 " Allow plugins to eat `.`
 NeoBundle 'tpope/vim-repeat'
 
@@ -38,10 +36,10 @@ NeoBundle 'scrooloose/syntastic'
 
 " Tab completion
 NeoBundle 'Valloric/YouCompleteMe', {
-	\ 'build' : {
-		\ 'unix' : 'sh install.sh'
+		\ 'build' : {
+			\ 'unix' : 'sh install.sh'
+		\}
 	\}
-\}
 
 " Fix misspellings
 NeoBundle 'chip/vim-fat-finger'
