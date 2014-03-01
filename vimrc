@@ -73,6 +73,12 @@ filetype plugin on
 
 set foldmethod=indent
 set foldlevel=99
+
+" Use softtabs
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
  
 set ofu=syntaxcomplete#Complete
 
