@@ -8,7 +8,7 @@ if test `which git`; then
 	cp -r gitconfig $HOME/.gitconfig
 	cp -r git_template $HOME/.git_template
 else 
-	echo "Couldn't find git, this might cause problem for further installs."
+	echo "Couldn't find git, this might cause problems for further installs."
 	echo "Continue ? (y/N)"
 	read -r ans
 	case $ans in
@@ -40,14 +40,21 @@ if test `which powerline`; then
 	cp -r powerline $HOME/.config/
 else 
 	echo "Couldn't find powerline, this will cause bugs in vim/tmux"
-	echo "Exiting"
-	exit 1
+	echo "Continue ? (y/N)"
+	read -r ans
+	case $ans in
+		[yY]|[yY]es)
+			;;
+		*)
+			exit 0
+			;;
+	esac
 fi
 
 ### TMUX ###
 if test `which tmux`; then
 	cp -r tmux.conf $HOME/.tmux.conf
-else 
+else
 	echo "Tmux no found, skipping .tmux.conf"
 fi
 
