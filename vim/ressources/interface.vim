@@ -1,5 +1,5 @@
 " Syntax highlighting
-set t_Co=256
+"set t_Co=256
 if has('syntax')
 	syntax on
 endif
@@ -168,4 +168,7 @@ map <C-Right> <C-W>l
 
 
 "colorscheme ir_black
-colorscheme hybrid
+"colorscheme hybrid
+let base16colorspace=256
+set background=dark
+colorscheme base16-default

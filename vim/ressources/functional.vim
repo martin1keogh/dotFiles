@@ -35,7 +35,6 @@ set wildignore+=node_modules
 set wildignore+=*.png,*.jpg,*.gif,*.pdf
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
-set wildignore+=*.cmi,*.com,*.class,*.pyc
 
 " Reload vimrc when it's changed
 if has('autocmd')

@@ -84,6 +84,8 @@ NeoBundle 'elzr/vim-json'
 
 NeoBundle 'airblade/vim-gitgutter'
 
+NeoBundle 'chriskempson/base16-vim'
+
 NeoBundle 'mdreves/vim-scaladoc'
 " Finish up Vundle
 filetype plugin indent on
