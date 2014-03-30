@@ -51,3 +51,5 @@ endif
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
+
+nnoremap <F5> :GundoToggle<CR>
