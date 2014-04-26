@@ -1,4 +1,3 @@
-export PATH=$HOME/.rvm/bin:$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/scala/bin
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 
 # Path to your oh-my-zsh configuration.
@@ -42,13 +41,12 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man command-not-found sbt scala)
+plugins=(git fasd colored-man command-not-found sbt scala rvm ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
 setopt correctall
 setopt autocd
-
 
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -62,7 +60,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
-
 
 #### Welcome Message #######
 if [[ $SHLVL -le 3 ]] ; then
@@ -93,10 +90,14 @@ function chpwd() {
 }
 
 # Ubuntu doesn't seem to like #define in .Xressources, let's force his hand
-if [[ x$WINDOW != x ]]
-then 
-	xrdb -merge ~/.Xresources
-fi
+xrdb -merge ~/.Xresources
 
 # OPAM configuration
 . /home/martin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+BASE16_SCHEME="default"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
