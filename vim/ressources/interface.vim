@@ -15,9 +15,9 @@ if has('mouse')
 	set mousehide
 endif
 
-" Comma is leader
-let mapleader = ','
-let g:mapleader = ','
+" Space is leader
+let mapleader = ' '
+let g:mapleader = ' '
 
 " Map Y to act like D and C: yank to EOL
 map Y y$
@@ -166,6 +166,8 @@ map <C-Down> <C-W>j
 map <C-Left> <C-W>h
 map <C-Right> <C-W>l
 
+" Change emmet.vim's default shortcut
+let g:user_emmet_leader_key='<C-Z>'
 
 "colorscheme ir_black
 "colorscheme hybrid
