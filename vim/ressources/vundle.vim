@@ -1,7 +1,7 @@
 " Set up Vundle
 if has('vim_starting')
- 	set nocompatible               " Be iMproved
- 	set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set nocompatible               " Be iMproved
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 filetype off
@@ -51,6 +51,8 @@ NeoBundle 'jQuery'
 NeoBundle 'rails.vim'
 NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
+NeoBundle 'mattn/emmet-vim'
+
 
 NeoBundle 'majutsushi/tagbar'
 
@@ -63,7 +65,9 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'spiroid/vim-ultisnip-scala'
+NeoBundle 'Trevoke/ultisnips-rspec'
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -87,6 +91,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'chriskempson/base16-vim'
 
 NeoBundle 'sjl/gundo.vim'
+
+NeoBundle 'vim-ruby/vim-ruby'
 
 NeoBundle 'mdreves/vim-scaladoc'
 " Finish up Vundle
