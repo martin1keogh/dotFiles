@@ -73,12 +73,6 @@ filetype plugin on
 
 set foldmethod=indent
 set foldlevel=99
-
-" Use softtabs
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
  
 set ofu=syntaxcomplete#Complete
 
@@ -112,16 +106,16 @@ endif
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python3.1 % <CR>
 set nu
 
-source ~/.vim/ressources/vundle.vim
+source ~/.vim/resources/vundle.vim
 
 let g:neocomplete#enable_at_startup = 1
 
-source ~/.vim/ressources/functional.vim
-source ~/.vim/ressources/languages.vim
+source ~/.vim/resources/functional.vim
+source ~/.vim/resources/languages.vim
 
-source ~/.vim/ressources/interface.vim
+source ~/.vim/resources/interface.vim
 
-source ~/.vim/ressources/plugins.vim
+source ~/.vim/resources/plugins.vim
 
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
@@ -168,3 +162,5 @@ let g:tagbar_type_omlet = {
 		\ 'e:Exception'
 		\]
 \}
+
+set expandtab
