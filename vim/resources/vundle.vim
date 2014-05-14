@@ -16,8 +16,12 @@ NeoBundle 'justinmk/vim-sneak'
 " Allow plugins to eat `.`
 NeoBundle 'tpope/vim-repeat'
 
+NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'tpope/vim-dispatch'
+
 " Delimiters
-NeoBundle 'Raimondi/delimitMate'
+"NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'jiangmiao/auto-pairs'
 
 " Fuzzy finder
 "NeoBundle 'kien/ctrlp.vim'
@@ -50,6 +54,8 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jQuery'
 NeoBundle 'rails.vim'
 NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+
+NeoBundle 'tpope/vim-rails'
 
 NeoBundle 'mattn/emmet-vim'
 
@@ -95,6 +101,7 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 
 NeoBundle 'mdreves/vim-scaladoc'
+
 " Finish up Vundle
 filetype plugin indent on
 syntax on

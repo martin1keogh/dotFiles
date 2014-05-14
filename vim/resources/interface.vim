@@ -100,6 +100,9 @@ set number
 " Show matching bracket when you hover on one
 set showmatch
 
+" Allow non-visible modified buffers
+set hidden
+
 " Soft wrap by word
 set wrap
 set linebreak
