@@ -39,11 +39,10 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
 
 " Tab completion
-NeoBundle 'Valloric/YouCompleteMe', {
-		\ 'build' : {
-			\ 'unix' : 'sh install.sh'
-		\}
-	\}
+NeoBundle 'Shougo/neocomplete'
+
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " Fix misspellings
 NeoBundle 'chip/vim-fat-finger'
@@ -52,8 +51,10 @@ NeoBundle 'chip/vim-fat-finger'
 NeoBundle 'Markdown'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'jQuery'
+NeoBundle 'rake.vim'
 NeoBundle 'rails.vim'
 NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+NeoBundle 'tpope/vim-haml'
 
 NeoBundle 'tpope/vim-rails'
 
@@ -69,11 +70,6 @@ NeoBundle 'myusuf3/numbers.vim'
 NeoBundle 'mileszs/ack.vim'
 
 NeoBundle 'altercation/vim-colors-solarized'
-
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'spiroid/vim-ultisnip-scala'
-NeoBundle 'Trevoke/ultisnips-rspec'
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -101,6 +97,9 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 
 NeoBundle 'mdreves/vim-scaladoc'
+
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
 
 " Finish up Vundle
 filetype plugin indent on

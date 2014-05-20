@@ -46,3 +46,9 @@ endif
 set encoding=utf-8
 
 set tags=./tags;$HOME
+
+if has("autocmd")
+  let pandoc_pipeline  = "pandoc --from=html --to=markdown"
+  let pandoc_pipeline .= " | pandoc --from=markdown --to=html"
+  autocmd FileType html let &formatprg=pandoc_pipeline
+endif
