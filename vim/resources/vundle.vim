@@ -16,6 +16,9 @@ NeoBundle 'justinmk/vim-sneak'
 " Allow plugins to eat `.`
 NeoBundle 'tpope/vim-repeat'
 
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-surround'
+
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'tpope/vim-dispatch'
 

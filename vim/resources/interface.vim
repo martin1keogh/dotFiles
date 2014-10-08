@@ -131,9 +131,6 @@ if has('statusline')
 	set laststatus=1           " Show the statusline in 2+ windows
 endif
 
-" Lazy redraw (because I SSH)
-set lazyredraw
-
 " English language and no spellchecking by default
 if has('spell')
 	silent! language messages "en"
@@ -169,11 +166,14 @@ map <C-Down> <C-W>j
 map <C-Left> <C-W>h
 map <C-Right> <C-W>l
 
+noremap K <Nop>
+
 " Change emmet.vim's default shortcut
 let g:user_emmet_leader_key='<C-Z>'
 
-"colorscheme ir_black
-"colorscheme hybrid
-let base16colorspace=256
 set background=dark
-colorscheme base16-default
+
+"colorscheme ir_black
+colorscheme hybrid
+"let base16colorspace=256
+"colorscheme base16-default

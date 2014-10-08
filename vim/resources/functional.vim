@@ -15,7 +15,7 @@ set history=1000
 set autoread
 
 " pwd should be this file, not some other madness
-set autochdir
+"set autochdir
 
 " Disable backup
 set nobackup

@@ -129,7 +129,7 @@ set laststatus=2
 
 nmap <F8> :TagbarToggle<CR>
 set t_Co=256
-
+set t_ut=
 
 let g:Powerline_symbols = "fancy"
 

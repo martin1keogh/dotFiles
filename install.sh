@@ -62,7 +62,7 @@ fi
 if test `which vim`; then
 	cp -r vim $HOME/.vim
 	cp -r vimrc $HOME/.vimrc
-	ln -s $HOME/.vim/ressources/colors $HOME/.vim/colors
+	ln -s $HOME/.vim/resources/colors $HOME/.vim/colors
 	mkdir -p ~/.vim/bundle
 	git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 	vim -u $HOME/.vimrc +NeoBundleUpdate +qa

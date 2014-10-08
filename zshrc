@@ -90,7 +90,7 @@ function chpwd() {
 }
 
 # Ubuntu doesn't seem to like #define in .Xressources, let's force his hand
-xrdb -merge ~/.Xresources
+#xrdb -merge ~/.Xresources
 
 # OPAM configuration
 . /home/martin/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -101,3 +101,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export TERM=screen-256color-bce
