@@ -54,6 +54,7 @@ fi
 ### TMUX ###
 if test `which tmux`; then
 	cp -r tmux.conf $HOME/.tmux.conf
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 else
 	echo "Tmux no found, skipping .tmux.conf"
 fi
