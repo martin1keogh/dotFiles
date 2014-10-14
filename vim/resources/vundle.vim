@@ -5,7 +5,7 @@ if has('vim_starting')
 endif
 
 filetype off
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -103,6 +103,7 @@ NeoBundle 'mdreves/vim-scaladoc'
 
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
+call neobundle#end()
 
 " Finish up Vundle
 filetype plugin indent on
