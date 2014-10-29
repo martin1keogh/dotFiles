@@ -11,7 +11,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'bling/vim-airline'
 
-NeoBundle 'justinmk/vim-sneak'
 
 " Allow plugins to eat `.`
 NeoBundle 'tpope/vim-repeat'
@@ -48,7 +47,10 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 " Fix misspellings
-NeoBundle 'chip/vim-fat-finger'
+" slow startup?
+"NeoBundle 'chip/vim-fat-finger'
+
+NeoBundle 'kshenoy/vim-signature'
 
 " Syntax highlightings
 NeoBundle 'Markdown'
