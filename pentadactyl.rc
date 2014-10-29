@@ -1,0 +1,23 @@
+set hintkeys=hjklasdfgyuiopqwertnmzxcvb
+
+let mapleader = " "
+
+:bmark https://encrypted.google.com/search?sclient=psy&hl=en&complete=0&site=webhp&source=hp&q=%s -keyword google
+set defsearch=google
+
+set noerrorbells
+
+set complete=l
+
+imap -builtin <C-a> <Ins><C-a><Ins>
+
+nmap -builtin d <Nop>
+nmap -builtin x d<CR>
+
+nmap -builtin j 5j
+nmap -builtin k 5k
+
+set scrollsteps=1
+set scrolltime=0
+
+colorscheme solarized-dark
