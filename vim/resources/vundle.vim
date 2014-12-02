@@ -11,26 +11,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'bling/vim-airline'
 
-
 " Allow plugins to eat `.`
 NeoBundle 'tpope/vim-repeat'
-
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-surround'
-
-NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'tpope/vim-dispatch'
 
+NeoBundle 'thoughtbot/vim-rspec'
+
 " Delimiters
-"NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'jiangmiao/auto-pairs'
 
-" Fuzzy finder
-"NeoBundle 'kien/ctrlp.vim'
-
-" NERDTred
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
 
 NeoBundle 'scrooloose/nerdcommenter'
 
@@ -42,39 +33,34 @@ NeoBundle 'scrooloose/syntastic'
 
 " Tab completion
 NeoBundle 'Shougo/neocomplete'
-
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 " Fix misspellings
-" slow startup?
+" Slow startup
 "NeoBundle 'chip/vim-fat-finger'
-
-NeoBundle 'kshenoy/vim-signature'
 
 " Syntax highlightings
 NeoBundle 'Markdown'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'jQuery'
 NeoBundle 'rake.vim'
 NeoBundle 'rails.vim'
-NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-NeoBundle 'tpope/vim-haml'
+NeoBundle 'pangloss/vim-javascript'
 
 NeoBundle 'tpope/vim-rails'
 
-NeoBundle 'mattn/emmet-vim'
+" Better /
+NeoBundle "haya14busa/incsearch.vim"
 
+NeoBundle "jlanzarotta/bufexplorer"
 
-NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'majutsushi/tagbar'
 
 NeoBundle 'tpope/vim-unimpaired'
 
 NeoBundle 'myusuf3/numbers.vim'
 
 NeoBundle 'mileszs/ack.vim'
-
-NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -84,11 +70,9 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-NeoBundle 'Shougo/unite.vim'
-
-NeoBundle 'aaronbieber/quicktask'
 
 NeoBundle 'gerw/vim-latex-suite'
+
 NeoBundle 'christoomey/vim-tmux-navigator'
 
 NeoBundle 'elzr/vim-json'
@@ -101,10 +85,6 @@ NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 
-NeoBundle 'mdreves/vim-scaladoc'
-
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
 call neobundle#end()
 
 " Finish up Vundle

@@ -9,13 +9,7 @@ set tabstop=2
 set shiftround
 
 " Remember lots of commands
-set history=1000
-
-" Autoupdate files from the outside
-set autoread
-
-" pwd should be this file, not some other madness
-"set autochdir
+set history=100
 
 " Disable backup
 set nobackup
@@ -37,18 +31,7 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
 set wildignore+=*.cmo,*.cmx,*.cma,*.cmi
 
-" Reload vimrc when it's changed
-if has('autocmd')
-	autocmd! BufWritePost vimrc source ~/.vimrc
-endif
-
 " UTF-8 is the only format
 set encoding=utf-8
 
 set tags=./tags;$HOME
-
-if has("autocmd")
-  let pandoc_pipeline  = "pandoc --from=html --to=markdown"
-  let pandoc_pipeline .= " | pandoc --from=markdown --to=html"
-  autocmd FileType html let &formatprg=pandoc_pipeline
-endif

@@ -9,12 +9,6 @@ endif
 set splitbelow
 set splitright
 
-" Mouse support
-if has('mouse')
-	set mouse=a
-	set mousehide
-endif
-
 " Space is leader
 let mapleader = ' '
 let g:mapleader = ' '
@@ -48,14 +42,11 @@ set incsearch     " Incremental search
 set hlsearch      " Highlight matches
 set gdefault      " Assume global search
 
-" So I'm not sure what this does but it looks cool
-set nojoinspaces
-
 " Fix backspace on Windows
 set backspace=2
 
 " Undo level
-set ul=1000
+set ul=100
 
 " Save undo history
 if has('undodir')
@@ -75,7 +66,6 @@ set ttimeoutlen=50
 
 " gvim
 if has('gui_running')
-
 	" Font
 	set guifont=Source\ Code\ Pro:h14
 	set antialias
@@ -91,7 +81,6 @@ if has('gui_running')
   highlight Cursor guifg=black guibg=grey
   set guicursor=n-c-v:block-Cursor-blinkon0
   set guicursor+=i:ver10-Cursor
-
 end
 
 " Show line numbers
@@ -119,17 +108,17 @@ set listchars=tab:▸\ ,eol:¬,trail:·
 " Make sure the line height is 1 line, not some other madness
 set linespace=1
 
-" Statusline
-if has('statusline')
-	set statusline=\ %F        " Filename + is modified
-	set statusline+=\ %m       " Has the file been modified?
-	set statusline+=\ %r       " Is the file read-only?
-	set statusline+=\ %h       " Is this a help file?
-	set statusline+=%=         " Separator
-	set statusline+=%c,\       " What column number?
-	set statusline+=%l/%L\     " How far into the file are we?
-	set laststatus=1           " Show the statusline in 2+ windows
-endif
+"" Statusline
+"if has('statusline')
+	"set statusline=\ %F        " Filename + is modified
+	"set statusline+=\ %m       " Has the file been modified?
+	"set statusline+=\ %r       " Is the file read-only?
+	"set statusline+=\ %h       " Is this a help file?
+	"set statusline+=%=         " Separator
+	"set statusline+=%c,\       " What column number?
+	"set statusline+=%l/%L\     " How far into the file are we?
+	"set laststatus=1           " Show the statusline in 2+ windows
+"endif
 
 " English language and no spellchecking by default
 if has('spell')
@@ -143,18 +132,11 @@ endif
 set noerrorbells
 set visualbell t_vb=
 
-" Return to normal mode when focus is lost
-if has('autocmd')
-	au FocusLost * call feedkeys("\<C-\>\<C-n>")
-endif
-
 " Map Home and End to PageUp and PageDown
 map [5~ <Home>
 map! [5~ <Home>
 map [6~ <End>
 map! [6~ <End>
-
-map ,F :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Map Control-direction to window-movement
 map <C-j> <C-W>j
@@ -165,15 +147,13 @@ map <C-Up> <C-W>k
 map <C-Down> <C-W>j
 map <C-Left> <C-W>h
 map <C-Right> <C-W>l
-
-noremap K <Nop>
-
-" Change emmet.vim's default shortcut
-let g:user_emmet_leader_key='<C-Z>'
-
 set background=dark
 
 "colorscheme ir_black
 colorscheme hybrid
 "let base16colorspace=256
 "colorscheme base16-default
+
+cnoremap w!! w !sudo tee % >/dev/null
+
+nnoremap gb :ls<CR>:buffer<Space>

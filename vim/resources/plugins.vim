@@ -15,34 +15,10 @@ else
 	let g:syntastic_style_warning_symbol='>'
 endif
 
-nmap <silent> <c-n> :NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_gui_startup=0
-let g:nerdtree_tabs_autoclose=1
-if has('autocmd')
-	au Filetype nerdtree setlocal nolist  " No hidden characters in NERDTree
-endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-let g:acp_enableAtStartup = 0
-
 if version >= 702
 	let g:indent_guides_enable_on_vim_startup = 1
 	let g:indent_guides_start_level = 2
 	let g:indent_guides_guide_size = 1
-endif
-
-nnoremap <C-p> :Unite -start-insert file_rec/async:!<cr>
-nnoremap <space>/ :Unite -start-insert grep:.<cr>
-" use ag if available
-if executable('ag')
-	let g:unite_source_grep_command = 'ag'
-	let g:unite_source_grep_default_opts = '--nogroup --column --nocolor'
-	let g:unite_source_grep_recursive_opt = ''
-" Use ack in unite grep source.
-else
-	let g:unite_source_grep_command = 'ack-grep'
-	let g:unite_source_grep_default_opts = '--no-heading --no-color -a'
-	let g:unite_source_grep_recursive_opt = ''
 endif
 
 let g:airline_powerline_fonts=1
@@ -144,14 +120,11 @@ imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)"
       \: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
 let g:rspec_command = "Dispatch rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
