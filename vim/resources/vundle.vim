@@ -22,6 +22,7 @@ NeoBundle 'thoughtbot/vim-rspec'
 " Delimiters
 NeoBundle 'jiangmiao/auto-pairs'
 
+NeoBundle 'kshenoy/vim-signature'
 
 NeoBundle 'scrooloose/nerdcommenter'
 
@@ -59,8 +60,6 @@ NeoBundle "jlanzarotta/bufexplorer"
 NeoBundle 'tpope/vim-unimpaired'
 
 NeoBundle 'myusuf3/numbers.vim'
-
-NeoBundle 'mileszs/ack.vim'
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
