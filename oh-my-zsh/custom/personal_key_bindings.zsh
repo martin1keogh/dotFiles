@@ -1,55 +1,50 @@
-# TODO: Explain what some of this does..
+function zle-keymap-select {
+    VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
+    zle reset-prompt
+}
 
-bindkey -e
-bindkey '\ew' kill-region
-bindkey -s '\el' "ls\n"
+# zle -N zle-line-init
+zle -N zle-keymap-select
+
+bindkey -v
+
+# Home key variants
+bindkey '\e[1~' vi-beginning-of-line
+bindkey '\eOH' vi-beginning-of-line
+
+# End key variants
+bindkey '\e[4~' vi-end-of-line
+bindkey '\eOF' vi-end-of-line
+
+bindkey -M viins '^o' vi-backward-kill-word
+
+bindkey -M vicmd 'yy' vi-yank-whole-line
+bindkey -M vicmd 'Y' vi-yank-eol
+
+bindkey -M vicmd 'y.' vi-yank-whole-line
+bindkey -M vicmd 'c.' vi-change-whole-line
+bindkey -M vicmd 'd.' kill-whole-line
+
+bindkey -M vicmd 'u' undo
+bindkey -M vicmd 'U' redo
+
+bindkey -M vicmd 'K' run-help
+bindkey -M viins '\eK' run-help
+
+bindkey -M vicmd '\-' vi-repeat-find
+bindkey -M vicmd '_' vi-rev-repeat-find
+
+bindkey -M viins '\e.' insert-last-word
+bindkey -M vicmd '\e.' insert-last-word
+
+bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^e' end-of-line
+
+# Kill input from the current point to the end of line with Ctrl-k
+bindkey '^k' kill-line
+# Search the history incremantally with Ctrl-r
 bindkey '^r' history-incremental-search-backward
 
-# make search up and down work, so partially type and hit up/down to find relevant stuff
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
-
-# XXX : remap of page up/page down to home/end
-# XXX : keyboard dependent
-bindkey "[5~" beginning-of-line
-bindkey "^[[5" beginning-of-line
-bindkey "^[[6~" end-of-line
-bindkey "[5~]" beginning-of-line
-bindkey "[3~" delete-char
-bindkey "^[[H" beginning-of-line
-bindkey "^[[1~" beginning-of-line
-bindkey "^[OH" beginning-of-line
-bindkey "^[[F"  end-of-line
-bindkey "^[[4~" end-of-line
-bindkey "^[OF" end-of-line
-bindkey ' ' magic-space    # also do history expansion on space
-
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-bindkey '^[[Z' reverse-menu-complete
-
-# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
-bindkey '^?' backward-delete-char
-bindkey "^[3;5~" delete-char
-bindkey "\e[3~" delete-char
-
-# consider emacs keybindings:
-
-#bindkey -e  ## emacs key bindings
-#
-#bindkey '^[[A' up-line-or-search
-#bindkey '^[[B' down-line-or-search
-#bindkey '^[^[[C' emacs-forward-word
-#bindkey '^[^[[D' emacs-backward-word
-#
-#bindkey -s '^X^Z' '%-^M'
-#bindkey '^[e' expand-cmd-path
-#bindkey '^[^I' reverse-menu-complete
-#bindkey '^X^N' accept-and-infer-next-history
-#bindkey '^W' kill-region
-#bindkey '^I' complete-word
-## Fix weird sequence that rxvt produces
-#bindkey -s '^[[Z' '\t'
-#
+bindkey "^W" backward-kill-word
+bindkey "^U" backward-kill-line
+bindkey "^?" backward-delete-char
