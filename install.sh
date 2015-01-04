@@ -76,3 +76,6 @@ if $ZSH_INSTALLED; then
 	echo "Do not forget to change your default shell to zsh! (`chsh -s /bin/zsh`)"
 fi
 
+### pryrc
+cp -n pryrc $HOME/.pryrc
+cp -n irbrc $HOME/.irbrc
