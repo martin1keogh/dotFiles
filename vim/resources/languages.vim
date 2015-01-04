@@ -1,5 +1,4 @@
 if has('autocmd')
-
 	" Get filetype correct
 	au BufEnter {Gemfile,Capfile,Kirkfile,Rakefile,Thorfile,config.ru} set filetype=ruby
 	au BufEnter *.{md,markdown,mdown,mkd,mkdn,txt} set filetype=markdown
@@ -21,5 +20,4 @@ if has('autocmd')
 		au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
 	endif
 	au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
-
 endif

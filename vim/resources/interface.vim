@@ -42,19 +42,12 @@ set incsearch     " Incremental search
 set hlsearch      " Highlight matches
 set gdefault      " Assume global search
 
-" Fix backspace on Windows
-set backspace=2
-
 " Undo level
 set ul=100
 
 " Save undo history
-if has('undodir')
-	set undodir=~/.vim/backups
-endif
-if has('undofile')
-	set undofile
-endif
+set undodir=~/.vim/undo
+set undofile
 
 " Let us make our commands beautiful
 set wildmenu
@@ -101,59 +94,42 @@ set wrapmargin=0
 " Scroll 4 lines away from margins
 set scrolloff=4
 
-" Tabs and EOLs should look like TextMate, but should be hidden by default
-set nolist
-set listchars=tab:▸\ ,eol:¬,trail:·
-
 " Make sure the line height is 1 line, not some other madness
 set linespace=1
 
-"" Statusline
-"if has('statusline')
-	"set statusline=\ %F        " Filename + is modified
-	"set statusline+=\ %m       " Has the file been modified?
-	"set statusline+=\ %r       " Is the file read-only?
-	"set statusline+=\ %h       " Is this a help file?
-	"set statusline+=%=         " Separator
-	"set statusline+=%c,\       " What column number?
-	"set statusline+=%l/%L\     " How far into the file are we?
-	"set laststatus=1           " Show the statusline in 2+ windows
-"endif
-
-" English language and no spellchecking by default
+" English language
 if has('spell')
 	silent! language messages "en"
 	set langmenu=none
-	set spl=en spell
-	set nospell
+	set spl=en
 endif
 
 " No error bells nor visual alerts
 set noerrorbells
 set visualbell t_vb=
 
-" Map Home and End to PageUp and PageDown
-map [5~ <Home>
-map! [5~ <Home>
-map [6~ <End>
-map! [6~ <End>
-
-" Map Control-direction to window-movement
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <C-Up> <C-W>k
-map <C-Down> <C-W>j
-map <C-Left> <C-W>h
-map <C-Right> <C-W>l
 set background=dark
 
-"colorscheme ir_black
 colorscheme hybrid
-"let base16colorspace=256
-"colorscheme base16-default
 
 cnoremap w!! w !sudo tee % >/dev/null
 
 nnoremap gb :ls<CR>:buffer<Space>
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+
+set foldmethod=indent
+set foldlevel=99
+
+" Always show statusline
+set laststatus=2
+
+set t_Co=256
+set t_ut=
+
+set expandtab
+set nomore

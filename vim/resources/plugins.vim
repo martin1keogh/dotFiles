@@ -15,18 +15,10 @@ else
 	let g:syntastic_style_warning_symbol='>'
 endif
 
-if version >= 702
-	let g:indent_guides_enable_on_vim_startup = 1
-	let g:indent_guides_start_level = 2
-	let g:indent_guides_guide_size = 1
-endif
-
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 
 nnoremap <F5> :GundoToggle<CR>
-
-nnoremap <F6> :Dispatch rspec<CR>
 
 runtime macros/matchit.vim
 " Disable AutoComplPop.
@@ -53,7 +45,6 @@ endif
 let g:neocomplete#keyword_patterns['default'] ='\h\w*'
 
 " Plugin key-mappings.
-inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><Tab> neocomplete#complete_common_string()
 
 " Recommended key-mappings.
@@ -71,28 +62,6 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left> neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up> neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down> neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ?
-"\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -107,19 +76,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-" Neosnippet
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
 let g:rspec_command = "Dispatch rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>

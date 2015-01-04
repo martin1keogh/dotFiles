@@ -8,7 +8,7 @@ set shiftwidth=2
 set tabstop=2
 set shiftround
 
-" Remember lots of commands
+" Remember more commands
 set history=100
 
 " Disable backup

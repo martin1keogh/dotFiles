@@ -16,6 +16,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-eunuch'
 
 NeoBundle 'thoughtbot/vim-rspec'
 
@@ -34,12 +35,6 @@ NeoBundle 'scrooloose/syntastic'
 
 " Tab completion
 NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-
-" Fix misspellings
-" Slow startup
-"NeoBundle 'chip/vim-fat-finger'
 
 " Syntax highlightings
 NeoBundle 'Markdown'
@@ -54,8 +49,6 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle "haya14busa/incsearch.vim"
 
 NeoBundle "jlanzarotta/bufexplorer"
-
-"NeoBundle 'majutsushi/tagbar'
 
 NeoBundle 'tpope/vim-unimpaired'
 
@@ -77,8 +70,6 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'elzr/vim-json'
 
 NeoBundle 'airblade/vim-gitgutter'
-
-NeoBundle 'chriskempson/base16-vim'
 
 NeoBundle 'sjl/gundo.vim'
 
