@@ -2,11 +2,14 @@ GIT_INSTALLED=false
 POWERLINE_INSTALLED=false
 ZSH_INSTALLED=false
 
+SCRIPT=`readlink -f $0`
+SCRIPTDIR=`dirname "$SCRIPT"`
+
 ### GIT ###
 if test `which git`; then
 	GIT_INSTALLED=true
-	cp -rn gitconfig $HOME/.gitconfig
-	cp -rn git_template $HOME/.git_template
+	ln -T -s $SCRIPTDIR/gitconfig $HOME/.gitconfig
+	ln -T -s $SCRIPTDIR/git_template $HOME/.git_template
 else 
 	echo "Couldn't find git, this might cause problems for further installs."
 	echo "Continue ? (y/N)"
@@ -23,10 +26,15 @@ fi
 ### ZSH ###
 if test `which zsh`; then
 	ZSH_INSTALLED=true
-	cp -rn zshrc $HOME/.zshrc
+	ln -T -s $SCRIPTDIR/zshrc $HOME/.zshrc
 	if $GIT_INSTALLED; then
 		git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-		cp -rn oh-my-zsh $HOME/.oh-my-zsh
+		for custom in `ls $SCRIPTDIR/oh-my-zsh/custom/*`; do
+		  ln -T -s $SCRIPTDIR/oh-my-zsh/custom/$custom $HOME/.oh-my-zsh/custom/`basename $custom`
+		done
+		for theme in `ls $SCRIPTDIR/oh-my-zsh/themes/*`; do
+		  ln -T -s $SCRIPTDIR/oh-my-zsh/themes/$theme $HOME/.oh-my-zsh/themes/`basename $theme`
+		done
 	else
 		echo "Couldn't find git, skipping `oh-my-zsh`'s install."
 	fi
@@ -37,7 +45,7 @@ fi
 ### POWERLINE ###
 if test `which powerline`; then
 	POWERLINE_INSTALLED=true
-	cp -rn powerline $HOME/.config/
+	ln -T -s $SCRIPTDIR/powerline $HOME/.config/
 else 
 	echo "Couldn't find powerline, this will cause bugs in vim/tmux"
 	echo "Continue ? (y/N)"
@@ -53,7 +61,7 @@ fi
 
 ### TMUX ###
 if test `which tmux`; then
-	cp -rn tmux.conf $HOME/.tmux.conf
+	ln -T -s $SCRIPTDIR/tmux.conf $HOME/.tmux.conf
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 else
 	echo "Tmux no found, skipping .tmux.conf"
@@ -61,11 +69,10 @@ fi
 
 ### VIM ###
 if test `which vim`; then
-	cp -rn vim $HOME/.vim
-	cp -rn vimrc $HOME/.vimrc
-	ln -s $HOME/.vim/resources/colors $HOME/.vim/colors
-	mkdir -p ~/.vim/bundle
-	git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+	ln -T -s $SCRIPTDIR/vim $HOME/.vim
+	ln -T -s $SCRIPTDIR/vimrc $HOME/.vimrc
+	mkdir -p $HOME/.vim_bundle
+	git clone https://github.com/Shougo/neobundle.vim ~/.vim_bundle/neobundle.vim
 	vim -u $HOME/.vimrc +NeoBundleUpdate +qa
 else 
 	echo "Couldn't find vim. Please install it and ensure it's 7.3+ with python enabled."
@@ -77,5 +84,5 @@ if $ZSH_INSTALLED; then
 fi
 
 ### pryrc
-cp -n pryrc $HOME/.pryrc
-cp -n irbrc $HOME/.irbrc
+ln -T -s $SCRIPTDIR/pryrc $HOME/.pryrc
+ln -T -s $SCRIPTDIR/irbrc $HOME/.irbrc
