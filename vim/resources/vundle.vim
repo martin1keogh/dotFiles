@@ -36,6 +36,9 @@ NeoBundle 'scrooloose/syntastic'
 " Tab completion
 NeoBundle 'Shougo/neocomplete'
 
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 " Syntax highlightings
 NeoBundle 'Markdown'
 NeoBundle 'derekwyatt/vim-scala'

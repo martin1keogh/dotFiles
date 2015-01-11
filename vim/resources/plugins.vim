@@ -63,6 +63,11 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+imap <expr><TAB> neosnippet#expandable() ?
+      \ "\<Plug>(neosnippet_expand)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
