@@ -45,6 +45,9 @@ bindkey '^k' kill-line
 # Search the history incremantally with Ctrl-r
 bindkey '^r' history-incremental-search-backward
 
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
+
 bindkey "^W" backward-kill-word
 bindkey "^U" backward-kill-line
 bindkey "^?" backward-delete-char
