@@ -1,3 +1,5 @@
+\set QUIET ON
+
 \set ON_ERROR_ROLLBACK interactive
 \set COMP_KEYWORD_CASE upper
 
@@ -27,3 +29,5 @@
 \set PROMPT2 '[more] %R > '
 
 \set VERBOSITY verbose
+
+\set QUIET OFF
