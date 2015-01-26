@@ -23,8 +23,8 @@
 \pset format wrapped
 
 -- Standard prompt
-\set PROMPT1 '%033[1m%]%M %n@%/%R%[%033[0m%]%# '
-\set PROMPT1 '%033[1m%]%M%033[1m%] %033[31m%]%n%033[1;37m%] @ %033[1;34m%]%/%[%033[0m%] %#%R%x '
+\set PROMPT1 '%[%033[1m%]%M%[%033[1m%] %[%033[31m%]%n%[%033[1;37m%] @ %[%033[1;34m%]%/%[%033[0m%] %#%R%x '
+
 -- Unfinished command promt
 \set PROMPT2 '[more] %R > '
 
