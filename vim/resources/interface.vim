@@ -52,6 +52,7 @@ set undofile
 " Let us make our commands beautiful
 set wildmenu
 set wildmode=list:longest,full
+set wildignorecase
 
 " Timeout on multi-key stuff
 set ttimeout
