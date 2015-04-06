@@ -45,7 +45,7 @@ plugins=(git fasd colored-man command-not-found sbt scala rvm ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
-setopt correctall
+setopt correct
 setopt autocd
 
 zle -N zle-line-init
