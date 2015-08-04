@@ -98,3 +98,5 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'

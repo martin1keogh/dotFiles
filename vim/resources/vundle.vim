@@ -78,6 +78,10 @@ NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'vim-ruby/vim-ruby'
 
+NeoBundle 'rking/ag.vim'
+
+NeoBundle 'chrisbra/vim-diff-enhanced'
+
 call neobundle#end()
 
 " Finish up Vundle
