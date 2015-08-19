@@ -54,21 +54,17 @@ inoremap <expr><Tab> neocomplete#complete_common_string()
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  " return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>": "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplete#close_popup()
-inoremap <expr><C-e> neocomplete#cancel_popup()
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-imap <expr><TAB> neosnippet#expandable() ?
-      \ "\<Plug>(neosnippet_expand)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+imap <C-k>     <Plug>(neosnippet_expand)
+smap <C-k>     <Plug>(neosnippet_expand)
+imap <C-l>     <Plug>(neosnippet_jump)
+smap <C-l>     <Plug>(neosnippet_jump)
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
