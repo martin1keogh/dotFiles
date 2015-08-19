@@ -103,3 +103,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export TERM=screen-256color-bce
+export POWERLINE_CONFIG_COMMAND=~/workspace/dotFiles/powerline/
+export PATH=/opt/intellij_idea/bin:$PATH
+
+# Edit current command with vim
+bindkey -M vicmd v edit-command-line
