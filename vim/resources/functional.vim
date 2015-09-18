@@ -31,6 +31,9 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
 set wildignore+=*.cmo,*.cmx,*.cma,*.cmi
 
+" Remove leading comment signs when joining commented lines
+set formatoptions+=j
+
 " UTF-8 is the only format
 set encoding=utf-8
 
