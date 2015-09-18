@@ -46,7 +46,7 @@ set gdefault      " Assume global search
 set ul=100
 
 " Save undo history
-set undodir=~/.vim/undo
+set undodir=~/.vim_undo
 set undofile
 
 " Let us make our commands beautiful
