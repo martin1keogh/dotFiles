@@ -1,91 +1,64 @@
-" Set up Vundle
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-  set runtimepath+=~/.vim_bundle/neobundle.vim/
-endif
+call plug#begin('~/.vim/plugged')
 
-filetype off
-call neobundle#begin(expand('~/.vim_bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Allow plugins to eat `.`
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
 
-NeoBundle 'thoughtbot/vim-rspec'
+" Language specific plugins
+Plug 'thoughtbot/vim-rspec', { 'for': ['ruby'] }
+Plug 'rake.vim', { 'for': ['ruby'] }
+Plug 'ruby.vim', { 'for': ['ruby'] }
+Plug 'tpope/vim-ruby', { 'for': ['ruby'] }
+
+Plug 'elzr/vim-json', { 'for': 'json' }
+
+Plug 'gerw/vim-latex-suite', { 'for': ['tex', 'latex'] }
 
 " Delimiters
-NeoBundle 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
-NeoBundle 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature'
 
-NeoBundle 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Git
-NeoBundle 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Syntax checking
-NeoBundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Tab completion
-NeoBundle 'Shougo/neocomplete'
+Plug 'Shougo/neocomplete'
 
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 
 " Syntax highlightings
-NeoBundle 'Markdown'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'rake.vim'
-NeoBundle 'rails.vim'
-NeoBundle 'pangloss/vim-javascript'
-
-NeoBundle 'tpope/vim-rails'
+Plug 'Markdown', { 'for': ['markdown', 'md'] }
+Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 
 " Better /
-NeoBundle "haya14busa/incsearch.vim"
+Plug 'haya14busa/incsearch.vim'
 
-NeoBundle "jlanzarotta/bufexplorer"
+Plug 'jlanzarotta/bufexplorer'
 
-NeoBundle 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
-NeoBundle 'myusuf3/numbers.vim'
+Plug 'myusuf3/numbers.vim'
 
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+Plug 'Shougo/vimproc', { 'do': 'make' }
 
-NeoBundle 'gerw/vim-latex-suite'
+Plug 'christoomey/vim-tmux-navigator'
 
-NeoBundle 'christoomey/vim-tmux-navigator'
+Plug 'sjl/gundo.vim'
 
-NeoBundle 'elzr/vim-json'
+Plug 'rking/ag.vim'
 
-NeoBundle 'airblade/vim-gitgutter'
+Plug 'chrisbra/vim-diff-enhanced'
 
-NeoBundle 'sjl/gundo.vim'
-
-NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundle 'rking/ag.vim'
-
-NeoBundle 'chrisbra/vim-diff-enhanced'
-
-call neobundle#end()
-
-" Finish up Vundle
-filetype plugin indent on
-syntax on
-
-NeoBundleCheck
+call plug#end()

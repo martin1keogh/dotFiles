@@ -72,8 +72,8 @@ if test `which vim`; then
 	ln -T -s $SCRIPTDIR/vim $HOME/.vim
 	ln -T -s $SCRIPTDIR/vimrc $HOME/.vimrc
 	mkdir -p $HOME/.vim_bundle
-	git clone https://github.com/Shougo/neobundle.vim ~/.vim_bundle/neobundle.vim
-	vim -u $HOME/.vimrc +NeoBundleUpdate +qa
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim -u $HOME/.vimrc +PlugInstall +qa
 	mkdir $HOME/.vim_undo
 else 
 	echo "Couldn't find vim. Please install it and ensure it's 7.3+ with python enabled."
