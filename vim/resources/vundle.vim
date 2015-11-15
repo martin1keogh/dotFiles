@@ -34,7 +34,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/syntastic'
 
 " Tab completion
-Plug 'Shougo/neocomplete'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+else
+  Plug 'Shougo/neocomplete'
+endif
 
 Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 
