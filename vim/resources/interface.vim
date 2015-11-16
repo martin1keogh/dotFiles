@@ -134,3 +134,6 @@ set t_ut=
 
 set expandtab
 set nomore
+
+set fillchars=vert:│,fold:-
+highlight VertSplit cterm=none ctermbg=none ctermfg=247
