@@ -30,14 +30,17 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Syntax checking
-Plug 'scrooloose/syntastic'
 
-" Tab completion
 if has('nvim')
+  " Tab completion
   Plug 'Shougo/deoplete.nvim'
+  " Syntax checking
+  Plug 'benekastah/neomake'
 else
+  " Tab completion
   Plug 'Shougo/neocomplete'
+  " Syntax checking
+  Plug 'scrooloose/syntastic'
 endif
 
 Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'

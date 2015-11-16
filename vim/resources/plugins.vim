@@ -1,20 +1,26 @@
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1    " Put errors on left side
-let g:syntactic_quiet_messages = {'level': 'warnings'}
-let g:syntastic_auto_loc_list=2   " Only show errors when I ask
-let g:syntastic_disabled_filetypes = ['html', 'js']
-let g:syntastic_mode_map = { "mode": "active",
-                           \ "passive_filetypes": ["scala"] }
-if has('unix')
-	let g:syntastic_error_symbol='★'
-	let g:syntastic_style_error_symbol='>'
-	let g:syntastic_warning_symbol='⚠'
-	let g:syntastic_style_warning_symbol='>'
+if has('nvim')
+  let g:neomake_scala_enabled_makers = ['scalac']
+  let g:neomake_verbose = -1
+  autocmd! BufWritePost * Neomake
 else
-	let g:syntastic_error_symbol='!'
-	let g:syntastic_style_error_symbol='>'
-	let g:syntastic_warning_symbol='.'
-	let g:syntastic_style_warning_symbol='>'
+  let g:syntastic_check_on_open=1
+  let g:syntastic_enable_signs=1    " Put errors on left side
+  let g:syntactic_quiet_messages = {'level': 'warnings'}
+  let g:syntastic_auto_loc_list=2   " Only show errors when I ask
+  let g:syntastic_disabled_filetypes = ['html', 'js']
+  let g:syntastic_mode_map = { "mode": "active",
+                            \ "passive_filetypes": ["scala"] }
+  if has('unix')
+	  let g:syntastic_error_symbol='★'
+	  let g:syntastic_style_error_symbol='>'
+	  let g:syntastic_warning_symbol='⚠'
+	  let g:syntastic_style_warning_symbol='>'
+  else
+	  let g:syntastic_error_symbol='!'
+	  let g:syntastic_style_error_symbol='>'
+	  let g:syntastic_warning_symbol='.'
+	  let g:syntastic_style_warning_symbol='>'
+  endif
 endif
 
 let g:airline_powerline_fonts=1
