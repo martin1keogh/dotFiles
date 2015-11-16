@@ -25,3 +25,4 @@ alias tmux="tmux -2"
 alias vimrc='vim ~/.vimrc'
 alias zshrc='vim ~/.zshrc'
 alias ocaml='rlwrap ocaml'
+alias vim='nvim'
