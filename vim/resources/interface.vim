@@ -135,5 +135,7 @@ set t_ut=
 set expandtab
 set nomore
 
+set mouse=
+
 set fillchars=vert:│,fold:-
 highlight VertSplit cterm=none ctermbg=none ctermfg=247
