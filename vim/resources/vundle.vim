@@ -62,7 +62,7 @@ Plug 'Shougo/vimproc', { 'do': 'make' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 
 Plug 'rking/ag.vim'
 

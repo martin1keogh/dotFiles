@@ -26,6 +26,7 @@ endif
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 
+let gundo_prefer_python3=1
 nnoremap <F5> :GundoToggle<CR>
 
 runtime macros/matchit.vim
