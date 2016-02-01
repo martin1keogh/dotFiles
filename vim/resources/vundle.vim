@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Allow plugins to eat `.`
 Plug 'tpope/vim-repeat'
