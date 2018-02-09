@@ -35,3 +35,5 @@
 	rebase = true
 [diff]
 	algorithm = patience
+[rerere]
+	enabled = true
