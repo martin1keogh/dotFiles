@@ -2,6 +2,7 @@
 
 \set ON_ERROR_ROLLBACK interactive
 \set COMP_KEYWORD_CASE upper
+\set HISTCONTROL ignoredups
 
 -- Don't use a pager (eg /bin/less) when query return lots of lines
 -- Multiplexer can do this
@@ -16,18 +17,88 @@
 -- Format each record as a set of rows when there are too many columns too fit the screen
 \x auto
 
+-- One histfile per DB
+\set HISTFILE ~/.psql_history- :DBNAME
 
+
+
+---------------
 -- PRESENTATION
+---------------
 \pset linestyle unicode
 \pset border 2
 \pset format wrapped
 
 -- Standard prompt
-\set PROMPT1 '%[%033[1m%]%M%[%033[1m%] %[%033[31m%]%n%[%033[1;37m%] @ %[%033[1;34m%]%/%[%033[0m%] %#%R%x '
+SELECT :'DBNAME' ILIKE '%prod%' AS is_prod,
+       :'DBNAME' ILIKE '%recette%' AS is_recette
+\gset
+\if :is_prod
+  \set color '%[%033[31m%]'
+\elif :is_recette
+  \set color '%[%033[38;5;10m%]'
+\else
+  \set color '%[%033[38;5;4m%]'
+\endif
+
+\set PROMPT1 '%[%033[1m%]%M%[%033[1m%] ' :color '%n%[%033[1;37m%] @ %[%033[1;34m%]%/%[%033[0m%] %#%R%x '
+
+\unset is_prod
+\unset is_recette
+\unset color
 
 -- Unfinished command promt
 \set PROMPT2 '[more] %R > '
 
-\set VERBOSITY verbose
 
+-- TODO: find a better way to check this
+SELECT :'HOST' ILIKE '%redshift%' AS is_redshift
+\gset
+
+------------------
+-- UTILITY METHODS
+------------------
+\set activity 'select * from pg_stat_activity;'
+\set connections 'select usename, count(*) from pg_stat_activity group by usename;'
+\set settings 'select name, setting, context from pg_settings;'
+\set sizes 'select table_schema as table_schema, table_name as table_name, pg_size_pretty(pg_total_relation_size(table_schema||\'.\'||table_name)) as total_size_pretty, pg_size_pretty(pg_relation_size(table_schema||\'.\'||table_name)) as table_size_pretty, pg_size_pretty(pg_total_relation_size(table_schema||\'.\'||table_name) - pg_relation_size(table_schema||\'.\'||table_name)) as index_size_pretty, case when pg_relation_size(table_schema||\'.\'||table_name) <> 0 then round( (pg_total_relation_size(table_schema||\'.\'||table_name) - pg_relation_size(table_schema||\'.\'||table_name))::numeric / pg_relation_size(table_schema||\'.\'||table_name)::numeric , 3) else null end as index_over_table_ratio, case when (pg_total_relation_size(table_schema||\'.\'||table_name) - pg_relation_size(table_schema||\'.\'||table_name)) <> 0 then round( pg_relation_size(table_schema||\'.\'||table_name)::numeric / (pg_total_relation_size(table_schema||\'.\'||table_name) - pg_relation_size(table_schema||\'.\'||table_name))::numeric , 3) else null end as table_over_index_ratio, pg_total_relation_size(table_schema||\'.\'||table_name) as total_size, pg_relation_size(table_schema||\'.\'||table_name) as table_size, (pg_total_relation_size(table_schema||\'.\'||table_name) - pg_relation_size(table_schema||\'.\'||table_name)) as index_size from information_schema.tables where table_schema <> \'pg_catalog\' and table_schema <> \'information_schema\' order by index_size desc;'
+
+\if :is_redshift
+  \set running 'select starttime, user_name, db_name, pid, query from stv_recents where status = '''Running''' ORDER BY 1;'
+  \set locks 'select table_id, last_update, lock_owner, lock_owner_pid from stv_locks order by last_update;'
+  \set columns 'select * from pg_table_def'
+  \set tablesize 'SELECT TRIM(pgdb.datname) AS Database, TRIM(a.name) AS Table, ((b.mbytes/part.total::decimal)*100)::decimal(5,2) AS pct_of_total, b.mbytes, b.unsorted_mbytes FROM stv_tbl_perm a JOIN pg_database AS pgdb ON pgdb.oid = a.db_id JOIN ( SELECT tbl, SUM( DECODE(unsorted, 1, 1, 0)) AS unsorted_mbytes, COUNT(*) AS mbytes FROM stv_blocklist GROUP BY tbl ) AS b ON a.id = b.tbl JOIN ( SELECT SUM(capacity) AS total FROM stv_partitions WHERE part_begin = 0 ) AS part ON 1 = 1 WHERE a.slice = 0 ORDER BY 4 desc, db_id, name;'
+\else
+  \set idxsize 'SELECT pg_size_pretty(pg_relation_size(schemaname||\'.\'||relname)), * FROM pg_stat_all_indexes where idx_scan = 0 and schemaname <> \'pg_toast\' order by pg_relation_size(schemaname||\'.\'||relname) desc;'
+  \set extensions 'select * from pg_available_extensions;'
+  \set locks  'SELECT bl.pid AS blocked_pid, a.usename AS blocked_user, kl.pid AS blocking_pid, ka.usename AS blocking_user, a.query AS blocked_statement FROM pg_catalog.pg_locks bl JOIN pg_catalog.pg_stat_activity a ON bl.pid = a.pid JOIN pg_catalog.pg_locks kl JOIN pg_catalog.pg_stat_activity ka ON kl.pid = ka.pid ON bl.transactionid = kl.transactionid AND bl.pid != kl.pid WHERE NOT bl.granted;'
+  \set waits 'SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.waiting, now() - pg_stat_activity.query_start AS \"totaltime\", pg_stat_activity.backend_start FROM pg_stat_activity WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.waiting = true;'
+  \set dbsize 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY db_size;'
+  \set tablesize 'SELECT nspname, relname AS \"relation\", pg_size_pretty(pg_relation_size(C.oid)) AS "size" FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\') ORDER BY pg_relation_size(C.oid) DESC LIMIT 40;'
+\endif
+
+-------------------
+-- STARTUP MESSAGES
+-------------------
+\set VERBOSITY verbose
 \set QUIET OFF
+
+\echo ''
+\echo '\t:activity\t-- List running queries.'
+\echo '\t:connections\t-- List open connections.'
+\echo '\t:settings\t-- List runtime configuration.'
+\echo '\t:locks\t\t-- Lock info.'
+\echo '\t:tablesize\t-- Table disk usage.'
+\echo '\t:sizes\t\t-- Table and index disk usage.'
+\if :is_redshift
+  \echo '\t:running\t-- Show running queries.'
+  \echo '\t:columns\t-- Show basic column info.'
+\else
+  \echo '\t:extensions\t-- List available extensions.'
+  \echo '\t:waits\t\t-- Waiting queries.'
+  \echo '\t:dbsize\t\t-- Database disk usage.'
+  \echo '\t:idxsize\t-- Index disk and query usage.'
+\endif
+\echo ''
+
+\unset is_redshift
