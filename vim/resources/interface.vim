@@ -116,6 +116,9 @@ colorscheme hybrid
 cnoremap w!! w !sudo tee % >/dev/null
 
 nnoremap gb :ls<CR>:buffer<Space>
+nnoremap <Leader>e :e <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <Leader>s :sp <C-R>=expand('%:p:h') . '/'<CR>
+nnoremap <Leader>v :vsp <C-R>=expand('%:p:h') . '/'<CR>
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
