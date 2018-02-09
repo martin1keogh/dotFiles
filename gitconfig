@@ -40,3 +40,5 @@
 [core]
 	excludesfile = /home/martin/.gitignore_global
 	attributesfile = /home/martin/.gitattributes
+[diff "json"]
+	textconv = jq .
