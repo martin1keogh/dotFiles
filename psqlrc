@@ -29,9 +29,9 @@
 \pset border 2
 \pset format wrapped
 
--- Standard prompt
-SELECT :'DBNAME' ILIKE '%prod%' AS is_prod,
-       :'DBNAME' ILIKE '%recette%' AS is_recette
+-- Set prompt color depending on the environment
+SELECT :'DBNAME' || :'HOST' ILIKE '%prod%' AS is_prod,
+       :'DBNAME' || :'HOST' ILIKE '%recette%' AS is_recette
 \gset
 \if :is_prod
   \set color '%[%033[31m%]'
