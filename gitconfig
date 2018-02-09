@@ -37,3 +37,6 @@
 	algorithm = patience
 [rerere]
 	enabled = true
+[core]
+	excludesfile = /home/martin/.gitignore_global
+	attributesfile = /home/martin/.gitattributes
