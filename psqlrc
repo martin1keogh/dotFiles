@@ -68,6 +68,7 @@ SELECT :'HOST' ILIKE '%redshift%' AS is_redshift
   \set locks 'select table_id, last_update, lock_owner, lock_owner_pid from stv_locks order by last_update;'
   \set columns 'select * from pg_table_def'
   \set tablesize 'SELECT TRIM(pgdb.datname) AS Database, TRIM(a.name) AS Table, ((b.mbytes/part.total::decimal)*100)::decimal(5,2) AS pct_of_total, b.mbytes, b.unsorted_mbytes FROM stv_tbl_perm a JOIN pg_database AS pgdb ON pgdb.oid = a.db_id JOIN ( SELECT tbl, SUM( DECODE(unsorted, 1, 1, 0)) AS unsorted_mbytes, COUNT(*) AS mbytes FROM stv_blocklist GROUP BY tbl ) AS b ON a.id = b.tbl JOIN ( SELECT SUM(capacity) AS total FROM stv_partitions WHERE part_begin = 0 ) AS part ON 1 = 1 WHERE a.slice = 0 ORDER BY 4 desc, db_id, name;'
+  \set vacuum_prog     'SELECT * FROM svv_vacuum_progress;'
 \else
   \set idxsize 'SELECT pg_size_pretty(pg_relation_size(schemaname||\'.\'||relname)), * FROM pg_stat_all_indexes where idx_scan = 0 and schemaname <> \'pg_toast\' order by pg_relation_size(schemaname||\'.\'||relname) desc;'
   \set extensions 'select * from pg_available_extensions;'
@@ -75,6 +76,7 @@ SELECT :'HOST' ILIKE '%redshift%' AS is_redshift
   \set waits 'SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.waiting, now() - pg_stat_activity.query_start AS \"totaltime\", pg_stat_activity.backend_start FROM pg_stat_activity WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.waiting = true;'
   \set dbsize 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY pg_database_size(datname);'
   \set tablesize 'SELECT nspname, relname AS \"relation\", pg_size_pretty(pg_relation_size(C.oid)) AS "size" FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\') ORDER BY pg_relation_size(C.oid) DESC LIMIT 40;'
+  \set vacuum_prog     'SELECT * FROM pg_stat_progress_vacuum;'
 \endif
 
 -------------------
@@ -90,6 +92,7 @@ SELECT :'HOST' ILIKE '%redshift%' AS is_redshift
 \echo '\t:locks\t\t-- Lock info.'
 \echo '\t:tablesize\t-- Table disk usage.'
 \echo '\t:sizes\t\t-- Table and index disk usage.'
+\echo '\t:vacuum_prog\t-- Show latest vacuum''s progress'
 \if :is_redshift
   \echo '\t:running\t-- Show running queries.'
   \echo '\t:columns\t-- Show basic column info.'
