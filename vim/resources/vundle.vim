@@ -63,4 +63,6 @@ Plug 'rking/ag.vim'
 
 Plug 'chrisbra/vim-diff-enhanced'
 
+Plug 'tommcdo/vim-lion'
+
 call plug#end()
