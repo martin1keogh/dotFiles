@@ -10,12 +10,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
 
-" Language specific plugins
-Plug 'thoughtbot/vim-rspec', { 'for': ['ruby'] }
-Plug 'rake.vim', { 'for': ['ruby'] }
-Plug 'ruby.vim', { 'for': ['ruby'] }
-Plug 'tpope/vim-ruby', { 'for': ['ruby'] }
-
 Plug 'elzr/vim-json', { 'for': 'json' }
 
 Plug 'gerw/vim-latex-suite', { 'for': ['tex', 'latex'] }
@@ -47,7 +41,7 @@ endif
 Plug 'Shougo/neosnippet.vim' | Plug 'Shougo/neosnippet-snippets'
 
 " Syntax highlightings
-Plug 'Markdown', { 'for': ['markdown', 'md'] }
+Plug 'gabrielelana/vim-markdown', { 'for': ['markdown', 'md'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 
 " Better /
