@@ -26,7 +26,8 @@ install_if_needed "aptitude"  \
   sudo apt-get install -y aptitude \;\
   sudo aptitude install \
     zsh neovim git tmux mosh \
-    python-pip python3-pip curl tig
+    python-pip python3-pip curl tig \
+    silversearcher-ag
 
 
 # GIT
