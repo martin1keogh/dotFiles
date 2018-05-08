@@ -26,7 +26,7 @@ install_if_needed "aptitude"  \
   sudo apt-get install -y aptitude \;\
   sudo aptitude install \
     zsh neovim git tmux mosh \
-    python-pip curl tig
+    python-pip python3-pip curl tig
 
 
 # GIT
@@ -67,7 +67,8 @@ install_if_needed "neovim" \
   ln -s $SCRIPTDIR/vim/colors $NVIM_HOME/colors \;\
   link vim \;\
   curl -fLo $NVIM_HOME/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \;\
-  nvim +PlugInstall +qa
+  pip3 install --user neovim \;\
+  nvim +PlugInstall +UpdateRemovePlugins +qa
 
 ### pryrc
 install_if_needed "psqlrc" link psqlrc
