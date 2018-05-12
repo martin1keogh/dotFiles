@@ -65,4 +65,6 @@ Plug 'chrisbra/vim-diff-enhanced'
 
 Plug 'tommcdo/vim-lion'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()

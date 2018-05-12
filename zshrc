@@ -1,4 +1,6 @@
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export GOPATH=~/Workspace/go
+export PATH=$GOPATH/bin:$PATH
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
