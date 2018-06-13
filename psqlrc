@@ -14,8 +14,19 @@
 -- Format each record as a set of rows when there are too many columns too fit the screen
 \x auto
 
+-- Avoid error message when 'env' variable wasn't supplied
+-- See https://stackoverflow.com/questions/32582600/only-set-variable-in-psql-script-if-not-specified-on-the-command-line
+\set env :env
+SELECT
+  CASE :'env'
+    WHEN ':env' THEN :'DBNAME'
+    ELSE :'DBNAME' || '('||:'env'||')'
+  END
+AS dbname_env
+\gset
+
 -- One histfile per DB
-\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTFILE ~/.psql_history- :dbname_env
 
 
 
@@ -27,8 +38,8 @@
 \pset format wrapped
 
 -- Set prompt color depending on the environment
-SELECT :'DBNAME' || :'HOST' ILIKE '%prod%' AS is_prod,
-       :'DBNAME' || :'HOST' ILIKE '%recette%' AS is_recette
+SELECT :'dbname_env' || :'HOST' ILIKE '%prod%' AS is_prod,
+       :'dbname_env' || :'HOST' ~* 'recette|staging' AS is_recette
 \gset
 \if :is_prod
   \set color '%[%033[31m%]'
@@ -38,7 +49,7 @@ SELECT :'DBNAME' || :'HOST' ILIKE '%prod%' AS is_prod,
   \set color '%[%033[38;5;4m%]'
 \endif
 
-\set PROMPT1 '%[%033[1m%]%M%[%033[1m%] ' :color '%n%[%033[1;37m%] @ %[%033[1;34m%]%/%[%033[0m%] %#%R%x '
+\set PROMPT1 '%[%033[1m%]%M%[%033[1m%] ' :color '%n%[%033[1;37m%] @ %[%033[1;34m%]%:dbname_env:%[%033[0m%] %#%R%x '
 
 \unset is_prod
 \unset is_recette
