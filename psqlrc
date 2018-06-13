@@ -11,9 +11,6 @@
 -- Show null value as '(null)' instead of blanks
 \pset null '(null)'
 
--- Show query time
-\timing on
-
 -- Format each record as a set of rows when there are too many columns too fit the screen
 \x auto
 
@@ -82,6 +79,9 @@ SELECT :'HOST' ILIKE '%redshift%' AS is_redshift
 -------------------
 -- STARTUP MESSAGES
 -------------------
+-- Show query time
+\timing on
+
 \set VERBOSITY verbose
 \set QUIET OFF
 
