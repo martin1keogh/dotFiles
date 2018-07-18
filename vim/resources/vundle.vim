@@ -30,7 +30,7 @@ if has('nvim')
   " Tab completion
   Plug 'Shougo/deoplete.nvim'
   " Syntax checking
-  Plug 'benekastah/neomake'
+  Plug 'w0rp/ale'
 else
   " Tab completion
   Plug 'Shougo/neocomplete'
@@ -45,7 +45,7 @@ Plug 'gabrielelana/vim-markdown', { 'for': ['markdown', 'md'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala'] }
 
 " Better /
-Plug 'haya14busa/incsearch.vim'
+"Plug 'haya14busa/incsearch.vim'
 
 Plug 'jlanzarotta/bufexplorer'
 
@@ -66,5 +66,8 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'tommcdo/vim-lion'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()

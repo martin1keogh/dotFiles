@@ -1,4 +1,4 @@
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export GOPATH=~/Workspace/go
 export PATH=$GOPATH/bin:$PATH
 
@@ -43,7 +43,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git fasd colored-man command-not-found sbt scala rvm ruby rails)
+plugins=(git fasd colored-man command-not-found sbt scala rvm ruby rails aws gcloud)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,3 +128,12 @@ zle -N zle-line-finish _zle_line_finish
 
 # Edit current command with vim
 bindkey -M vicmd v edit-command-line
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Add pip --user path
+PATH=~/.local/bin/:$PATH

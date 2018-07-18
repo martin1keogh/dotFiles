@@ -1,7 +1,7 @@
 if has('nvim')
-  let g:neomake_scala_enabled_makers = ['scalac']
-  let g:neomake_verbose = -1
-  autocmd! BufWritePost * Neomake
+  "let g:neomake_scala_enabled_makers = ['scalac']
+  "let g:neomake_verbose = -1
+  "autocmd! BufWritePost * Neomake
 else
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_signs=1    " Put errors on left side
@@ -22,6 +22,8 @@ else
 	  let g:syntastic_style_warning_symbol='>'
   endif
 endif
+
+let g:ale_lint_on_text_changed = 'never'
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
@@ -93,20 +95,21 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-let g:rspec_command = "Dispatch rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+"map / <Plug>(incsearch-forward)
+"map ? <Plug>(incsearch-backward)
+"let g:incsearch#auto_nohlsearch = 1
+"map n  <Plug>(incsearch-nohl-n)
+"map N  <Plug>(incsearch-nohl-N)
+"map *  <Plug>(incsearch-nohl-*)
+"map #  <Plug>(incsearch-nohl-#)
+"map g* <Plug>(incsearch-nohl-g*)
+"map g# <Plug>(incsearch-nohl-g#)
 
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+
+cnoreabbrev <expr> ag ((getcmdtype() is# ':' && getcmdline() is# 'ag')?('Ag!'):('ag'))
+autocmd BufEnter,FileType * execute 'let g:ag_prg="ag --vimgrep --smart-case --'.&ft.'"'
+
+nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <leader>gl :Commits<CR>
+inoremap <c-x><c-l> <plug>(fzf-complete-line)
