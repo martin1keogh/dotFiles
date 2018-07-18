@@ -43,3 +43,5 @@
 	attributesfile = /home/martin/.gitattributes
 [diff "json"]
 	textconv = jq .
+[remote "origin"]
+  prune = true
