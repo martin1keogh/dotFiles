@@ -112,4 +112,3 @@ autocmd BufEnter,FileType * execute 'let g:ag_prg="ag --vimgrep --smart-case --'
 
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>gl :Commits<CR>
-inoremap <c-x><c-l> <plug>(fzf-complete-line)
