@@ -26,7 +26,8 @@ install_if_needed "dependencies"  \
   sudo apt install \
     zsh neovim git tmux mosh \
     python-pip python3-pip curl tig \
-    silversearcher-ag zsh-syntax-highlighting
+    silversearcher-ag zsh-syntax-highlighting \
+    fonts-powerline
 
 
 # GIT
