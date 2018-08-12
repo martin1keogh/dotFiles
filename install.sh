@@ -55,8 +55,7 @@ install_if_needed "powerline" \
 
 ### TMUX ###
 install_if_needed "tmux" \
-  link tmux.conf \;\
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  link tmux.conf
 
 ### NEOVIM ###
 NVIM_HOME=~/.config/nvim
