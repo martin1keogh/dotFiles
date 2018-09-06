@@ -33,6 +33,8 @@
 	renameLimit = 10000
 [pull]
 	rebase = preserve
+[rebase]
+  autoStash = true
 [diff]
 	algorithm = patience
 [rerere]
