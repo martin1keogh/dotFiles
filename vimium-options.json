@@ -13,7 +13,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your prefered key mappings here.\nmap <c-o> goBack\nmap <c-i> goForward\nunmap o\nunmap O\nunmap t\nunmap T\nunmap W\nmap <c-6> visitPreviousTab",
+  "keyMappings": "# Insert your prefered key mappings here.\nmap <c-o> goBack\nmap <c-i> goForward\nunmap o\nunmap O\nunmap t\nunmap T\nunmap W\nmap <c-6> visitPreviousTab\n\n\" using vivaldi with tabs on the left, the previous tab is above\n\" while the next one is below\n\" swap J/K to reflect this\nmap J nextTab\nmap K previousTab\n\n\" conflicts with settings shortcut in vivaldi (plus pretty useless imo)\nunmap <a-p>",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
