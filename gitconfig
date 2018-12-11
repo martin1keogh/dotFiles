@@ -1,48 +1,50 @@
 [user]
-	email = martin1keogh@gmail.com
-	name = Martin Keogh
+  email = martin1keogh@gmail.com
+  name = Martin Keogh
 [color]
-	ui = auto
+  ui = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [alias]
-	co = checkout
-	ci = commit -v
-	st = status
-	lg = !tig
-	lgall = !tig --all
-	lgl = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(white)%s%C(reset) — %an' --abbrev-commit --date=short
-	fix = commit --amend --no-edit
+  co = checkout
+  ci = commit -v
+  st = status
+  lg = !tig
+  lgall = !tig --all
+  lgl = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(white)%s%C(reset) — %an' --abbrev-commit --date=short
+  fix = commit --amend --no-edit
 [push]
-	default = simple
+  default = simple
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
 [merge]
-	conflictstyle = diff3
-	renameLimit = 10000
+  conflictstyle = diff3
+  renameLimit = 10000
 [pull]
-	rebase = preserve
+  rebase = preserve
 [rebase]
   autoStash = true
 [diff]
-	algorithm = patience
+  algorithm = patience
 [rerere]
-	enabled = true
+  enabled = true
 [core]
-	excludesfile = /home/martin/.gitignore_global
-	attributesfile = /home/martin/.gitattributes
+  excludesfile = /home/martin/.gitignore_global
+  attributesfile = /home/martin/.gitattributes
 [diff "json"]
-	textconv = jq .
+  textconv = jq .
 [remote "origin"]
   prune = true
+[credential]
+  helper = cache --timeout=36000
