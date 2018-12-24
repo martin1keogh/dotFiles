@@ -1,13 +1,17 @@
 {
-  "settingsVersion": "1.64",
+  "settingsVersion": "1.64.2",
   "exclusionRules": [
     {
       "pattern": "http*://mail.google.com/*",
-      "passKeys": "jkoO#x#/"
+      "passKeys": "jknpoO#x#/?"
     },
     {
       "pattern": "https?://www.ratp.fr/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.inoreader.com/*",
+      "passKeys": "rjknpomxAOXNP"
     }
   ],
   "filterLinkHints": false,
