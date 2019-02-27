@@ -72,4 +72,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'metakirby5/codi.vim'
 
+Plug 'hashivim/vim-terraform', { 'for': ['terraform'] }
+Plug 'juliosueiras/vim-terraform-completion', { 'for': ['terraform'] }
+
 call plug#end()

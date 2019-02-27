@@ -1,8 +1,4 @@
-if has('nvim')
-  "let g:neomake_scala_enabled_makers = ['scalac']
-  "let g:neomake_verbose = -1
-  "autocmd! BufWritePost * Neomake
-else
+if !has('nvim')
   let g:syntastic_check_on_open=1
   let g:syntastic_enable_signs=1    " Put errors on left side
   let g:syntactic_quiet_messages = {'level': 'warnings'}
@@ -36,6 +32,10 @@ runtime macros/matchit.vim
 let g:acp_enableAtStartup = 0
 if has('nvim')
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#omni_patterns = {}
+  let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+  let g:deoplete#enable_at_startup = 1
+  call deoplete#initialize()
   set ofu=syntaxcomplete#Complete
 else
   " " Use neocomplete.
@@ -114,3 +114,5 @@ nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>gl :Commits<CR>
 
 let g:codi#rightalign = 0
+
+let g:gutentags_cache_dir = '~/.tags/'
