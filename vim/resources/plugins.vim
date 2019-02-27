@@ -116,3 +116,5 @@ nnoremap <silent> <leader>gl :Commits<CR>
 let g:codi#rightalign = 0
 
 let g:gutentags_cache_dir = '~/.tags/'
+
+let g:tmux_navigator_disable_when_zoomed = 1
