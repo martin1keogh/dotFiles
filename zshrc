@@ -137,3 +137,5 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Add pip --user path
 PATH=~/.local/bin/:$PATH
+
+export PYTHONBREAKPOINT=pudb.set_trace
