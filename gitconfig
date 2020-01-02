@@ -32,7 +32,7 @@
   conflictstyle = diff3
   renameLimit = 10000
 [pull]
-  rebase = preserve
+  rebase = true
 [rebase]
   autoStash = true
 [diff]
