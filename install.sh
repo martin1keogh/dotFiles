@@ -33,7 +33,6 @@ install_if_needed "dependencies"  \
 # GIT
 install_if_needed "git_and_tig" \
   link gitconfig \;\
-  link git_template \;\
   link tigrc
 
 ### ZSH ###

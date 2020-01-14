@@ -22,12 +22,9 @@
   st = status
   lg = !tig
   lgall = !tig --all
-  lgl = log --graph --all --format=format:'%C(red)%h%C(reset) - %C(green)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(white)%s%C(reset) — %an' --abbrev-commit --date=short
   fix = commit --amend --no-edit
 [push]
   default = simple
-[init]
-  templatedir = ~/.git_template
 [merge]
   conflictstyle = diff3
   renameLimit = 10000
