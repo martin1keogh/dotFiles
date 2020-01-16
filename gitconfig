@@ -23,6 +23,8 @@
   lg = !tig
   lgall = !tig --all
   fix = commit --amend --no-edit
+  # gitlab specific
+  mwps = !CURRENT=$(git rev-parse --abbrev-ref HEAD) && git push -u origin $CURRENT -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch
 [push]
   default = simple
 [merge]
