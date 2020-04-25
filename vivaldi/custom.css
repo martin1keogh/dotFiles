@@ -3,3 +3,15 @@
     min-height: 0;
 }
 
+.toolbar-addressbar {
+    position: fixed;
+    width: 100%;
+}
+
+.toolbar-addressbar * {
+    margin-top: -100%;
+}
+
+.toolbar-addressbar:focus-within * {
+    margin-top: auto;
+}
