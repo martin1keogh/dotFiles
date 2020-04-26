@@ -15,3 +15,9 @@
 .toolbar-addressbar:focus-within * {
     margin-top: auto;
 }
+
+.find-in-page {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
