@@ -21,3 +21,15 @@
     width: 100%;
     z-index: 3;
 }
+
+div#panels-container {
+    width: 0 !important; /* inline css by vivaldi here leaves no choice */
+}
+
+div#panels div#switch {
+    display: none;
+}
+
+div#panels div.panel-group {
+    right: 0 !important; /* inline css by vivaldi here leaves no choice */
+}
