@@ -37,3 +37,7 @@ div#panels div.panel-group {
 div.button-toolbar.newtab {
     display: none;
 }
+
+#webview-container ~ .StatusInfo {
+    bottom: 27px; /* default value is 6px, but then this info ends up over sync/bin buttons */
+}
