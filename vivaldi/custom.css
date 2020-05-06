@@ -33,3 +33,7 @@ div#panels div#switch {
 div#panels div.panel-group {
     right: 0 !important; /* inline css by vivaldi here leaves no choice */
 }
+
+div.button-toolbar.newtab {
+    display: none;
+}
