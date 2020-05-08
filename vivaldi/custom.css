@@ -39,5 +39,5 @@ div.button-toolbar.newtab {
 }
 
 #webview-container ~ .StatusInfo {
-    bottom: 27px; /* default value is 6px, but then this info ends up over sync/bin buttons */
+    left: 200px; /* shift the "url preview" right so that it isn't on top of the tab panel */
 }
