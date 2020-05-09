@@ -50,6 +50,7 @@ div#tabs-container {
 .StatusInfo {
     position: fixed;
     left: calc(var(--tabs-container-width) + 6px);
+    background-color: var(--colorBg);
 }
 
 /* merge "sync-and-trash" and status bar together, fitted under tabs-container */
