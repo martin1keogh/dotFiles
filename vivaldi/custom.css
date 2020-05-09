@@ -47,6 +47,21 @@ div#tabs-container {
 }
 
 /* shift the "url preview" right so that it isn't on top of the tab panel */
-#webview-container ~ .StatusInfo {
+.StatusInfo {
+    position: fixed;
     left: calc(var(--tabs-container-width) + 6px);
+}
+
+/* merge "sync-and-trash" and status bar together, fitted under tabs-container */
+.toolbar-tabbar.sync-and-trash-container {
+    justify-content: left;
+}
+.toolbar-statusbar {
+    position: absolute;
+    bottom: 0;
+    left: 58px;
+    min-height: 30px;
+}
+.toolbar-statusbar .button-toolbar {
+    align-self: auto;
 }
