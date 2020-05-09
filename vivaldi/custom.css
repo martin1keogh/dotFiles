@@ -38,6 +38,14 @@ div.button-toolbar.newtab {
     display: none;
 }
 
+:root {
+    --tabs-container-width: 200px;
+}
+
+div#tabs-container {
+    width: var(--tabs-container-width) !important;
+}
+
 #webview-container ~ .StatusInfo {
-    left: 200px; /* shift the "url preview" right so that it isn't on top of the tab panel */
+    left: calc(var(--tabs-container-width) + 6px); /* shift the "url preview" right so that it isn't on top of the tab panel */
 }
