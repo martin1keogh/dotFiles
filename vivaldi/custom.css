@@ -1,39 +1,40 @@
+/* remove OS title bar/close button */
 #header {
     visibility: hidden;
     min-height: 0;
 }
 
+/* hide address bar unless focused */
 .toolbar-addressbar {
     position: fixed;
     width: 100%;
 }
-
 .toolbar-addressbar * {
     margin-top: -100%;
 }
-
 .toolbar-addressbar:focus-within * {
     margin-top: auto;
 }
 
+/* make search bar float over */
 .find-in-page {
     position: fixed;
     width: 100%;
     z-index: 3;
 }
 
+/* remove panels container */
 div#panels-container {
     width: 0 !important; /* inline css by vivaldi here leaves no choice */
 }
-
 div#panels div#switch {
     display: none;
 }
-
 div#panels div.panel-group {
     right: 0 !important; /* inline css by vivaldi here leaves no choice */
 }
 
+/* remove new-tab button */
 div.button-toolbar.newtab {
     display: none;
 }
@@ -41,11 +42,11 @@ div.button-toolbar.newtab {
 :root {
     --tabs-container-width: 200px;
 }
-
 div#tabs-container {
     width: var(--tabs-container-width) !important;
 }
 
+/* shift the "url preview" right so that it isn't on top of the tab panel */
 #webview-container ~ .StatusInfo {
-    left: calc(var(--tabs-container-width) + 6px); /* shift the "url preview" right so that it isn't on top of the tab panel */
+    left: calc(var(--tabs-container-width) + 6px);
 }
