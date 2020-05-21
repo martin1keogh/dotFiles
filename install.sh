@@ -47,7 +47,9 @@ for theme in "$SCRIPTDIR"/oh-my-zsh/themes/*; do
   ln -b -T -s "$theme" "$HOME"/.oh-my-zsh/themes/"$(basename "$theme")"
 done
 
-git clone 'git@github.com:martin1keogh/zsh_pgpass_completion.git' ~/.oh-my-zsh/custom/plugins/psql/
+if [ ! -e ~/.oh-my-zsh/custom/plugins/psql/ ]; then
+  git clone 'git@github.com:martin1keogh/zsh_pgpass_completion.git' ~/.oh-my-zsh/custom/plugins/psql/
+fi
 
 ### POWERLINE ###
 install_if_needed "powerline" \
