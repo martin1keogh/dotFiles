@@ -53,7 +53,7 @@ fi
 
 ### POWERLINE ###
 install_if_needed "powerline" \
-  pip install --user powerline-status \;\
+  pip3 install --user powerline-status \;\
   link powerline .config
 
 ### TMUX ###
