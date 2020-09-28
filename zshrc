@@ -133,3 +133,5 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PATH=~/.local/bin/:$PATH
 
 export PYTHONBREAKPOINT=pudb.set_trace
+
+PATH=~/.poetry/bin/:$PATH
