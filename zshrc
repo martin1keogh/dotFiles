@@ -1,4 +1,4 @@
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/
 export GOPATH=~/Workspace/go
 export PATH=$GOPATH/bin:$PATH
 
