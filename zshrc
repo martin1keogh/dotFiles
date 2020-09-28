@@ -101,7 +101,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 
 export TERM=screen-256color-bce
 export POWERLINE_CONFIG_COMMAND=~/workspace/dotFiles/powerline/
-export PATH=/opt/intellij_idea/bin:$PATH
 
 # Keep failed history expansions
 # Credit: http://chneukirchen.org/blog/archive/2013/03/10-fresh-zsh-tricks-you-may-not-know.html
