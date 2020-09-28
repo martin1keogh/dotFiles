@@ -99,9 +99,6 @@ BASE16_SCHEME="default"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 export TERM=screen-256color-bce
 export POWERLINE_CONFIG_COMMAND=~/workspace/dotFiles/powerline/
 export PATH=/opt/intellij_idea/bin:$PATH
