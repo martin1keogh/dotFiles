@@ -77,6 +77,7 @@ install_if_needed "psqlrc" link psqlrc
 install_if_needed "pryrc" link pryrc
 install_if_needed "irbrc" link irbrc
 install_if_needed "ideavimrc" link ideavimrc
+install_if_needed "inputrc" link inputrc
 
 echo
 echo
