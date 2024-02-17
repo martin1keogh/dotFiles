@@ -28,7 +28,7 @@
 [push]
   default = simple
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
   renameLimit = 10000
 [pull]
   rebase = true
