@@ -16,6 +16,8 @@
   added = yellow
   changed = green
   untracked = cyan
+[credential]
+  helper = cache --timeout=36000
 [alias]
   co = checkout
   ci = commit -v
@@ -25,25 +27,31 @@
   fix = commit --amend --no-edit
   # gitlab specific
   mwps = !CURRENT=$(git rev-parse --abbrev-ref HEAD) && git push -u origin $CURRENT -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch
+
 [push]
   default = simple
-[merge]
-  conflictstyle = zdiff3
-  renameLimit = 10000
 [pull]
   rebase = true
+[commit]
+  verbose = true
 [rebase]
   autoStash = true
 [diff]
+  colorMoved = plain
   algorithm = patience
-[rerere]
-  enabled = true
-[core]
-  excludesfile = /home/martin/.gitignore_global
-  attributesfile = /home/martin/.gitattributes
+  renames = true
+  mnemonicPrefix = true
 [diff "json"]
   textconv = jq .
+[merge]
+  conflictstyle = zdiff3
+  renameLimit = 10000
+[rerere]
+  enabled = true
+  autoUpdate = true
+[branch]
+  sort = "committerdate"
+[tag]
+  sort = "version:refname"
 [remote "origin"]
   prune = true
-[credential]
-  helper = cache --timeout=36000
