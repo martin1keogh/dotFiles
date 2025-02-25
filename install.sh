@@ -38,7 +38,7 @@ install_if_needed "git_and_tig" \
 ### ZSH ###
 install_if_needed "zsh" \
   link zshrc \;\
-  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
 for custom in "$SCRIPTDIR"/oh-my-zsh/custom/*; do
   ln -b -T -s "$custom" "$HOME"/.oh-my-zsh/custom/"$(basename "$custom")"
